@@ -114,6 +114,6 @@ Keep in mind that this module is built for small devices. It does not have the g
 # Compilation
 This module was built with TypeScript. It uses Typescript to generate JavaScript files that are imported by the Fitbit SDK.
 It includes the following npm scripts to:
-- build (gÃ©nÃ©rate JavaScript files and copy all requested files to the `./distribution` directory)
+- build (generate JavaScript files and copy all requested files to the `./distribution` directory)
 - clean (remove generated files from the `./distribution` directory)
 Types are inside the `./distribution/types` directory. If you change exported methods or class, think to update those files.
