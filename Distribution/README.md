@@ -1,7 +1,8 @@
 ﻿# Download
 [![npm](https://img.shields.io/npm/dw/simple-fitbit-settings.svg?logo=npm&label=npm%20version)](https://www.npmjs.com/package/simple-fitbit-settings)
 # Introduction
-The goal of this module is to reduce the time to implement settings communication inside of your Fitbit OS application.
+The goal of this module is to simplify management of settings inside Fitbit OS applications. It implements communication of settings from the companion to the device application, and the initialization of the companion User Interface (UI).
+
 It could be used with typescript or JavaScript.
 # Features
 This module includes many features that will make you settings easy to use:
