@@ -77,7 +77,7 @@ Inside the `app` folder the `index.ts` file have to :
 Exemple:
 ```ts
 // Import the settigns module
-import { appSettings } from "simple-fitbit-settings/app";
+import { * as appSettings } from "simple-fitbit-settings/app";
 // Import settings class from common folder
 import { Settings } from "../common/settings";
 // Current settings
@@ -103,7 +103,7 @@ Inside the `companion` folder the `index.ts` file have to :
 - Initialize the setting module with an instance of your class settings (it will be used to define default values and set UI state at first load).
 Exemple:
 ```ts
-import { companionSettings } from "simple-fitbit-settings/companion";
+import { * as companionSettings } from "simple-fitbit-settings/companion";
 import { Settings } from "../common/settings";
 companionSettings.initialize(new Settings());
 ```

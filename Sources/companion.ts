@@ -3,20 +3,17 @@ import { settingsStorage } from "settings";
 import { MessageData } from "./common";
 
 // initialize settings tools
-export class CompanionSettings {
-  public initialize(defaultSettings: any): void {
-    // Whensettings changed -> send the new value
-    settingsStorage.onchange = (e) => {
-      if (e.oldValue !== e.newValue && e.newValue !== undefined) {
-        sendValue(e.key, e.newValue);
-      }
-    };
+export function initialize(defaultSettings: any): void {
+  // Whensettings changed -> send the new value
+  settingsStorage.onchange = (e) => {
+    if (e.oldValue !== e.newValue && e.newValue !== undefined) {
+      sendValue(e.key, e.newValue);
+    }
+  };
 
-    // Init default settings
-    setDefaultSettings(defaultSettings);
-  }
+  // Init default settings
+  setDefaultSettings(defaultSettings);
 }
-export const companionSettings = new CompanionSettings();
 
 // Send value to the device app
 function sendValue(key: string, val: string): void {

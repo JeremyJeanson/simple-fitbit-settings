@@ -1,6 +1,6 @@
 {
   "name": "simple-fitbit-settings",
-  "version": "1.0.2",
+  "version": "2.0.0-alpha1",
   "description": "Module to simplify management of settings inside Fitbit OS applications",
   "author": "Jérémy Jeanson (https://www.bugshunter.net)",
   "license": "MIT",

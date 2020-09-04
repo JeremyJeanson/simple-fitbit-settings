@@ -5,20 +5,12 @@ var SETTINGS_TYPE = "cbor";
 var SETTINGS_FILE = "settings.cbor";
 var _settings;
 var _onsettingschange;
-var AppSettings = (function () {
-    function AppSettings() {
-    }
-    AppSettings.prototype.initialize = function (settings, callback) {
-        _settings = settings;
-        _onsettingschange = callback;
-        loadSettings();
-        _onsettingschange(_settings);
-    };
-    ;
-    return AppSettings;
-}());
-export { AppSettings };
-export var appSettings = new AppSettings();
+export function initialize(settings, callback) {
+    _settings = settings;
+    _onsettingschange = callback;
+    loadSettings();
+    _onsettingschange(_settings);
+}
 messaging.peerSocket.addEventListener("message", function (evt) {
     var data = evt.data;
     if (data.type === "setting") {

@@ -1,20 +1,13 @@
 import * as messaging from "messaging";
 import { settingsStorage } from "settings";
-var CompanionSettings = (function () {
-    function CompanionSettings() {
-    }
-    CompanionSettings.prototype.initialize = function (defaultSettings) {
-        settingsStorage.onchange = function (e) {
-            if (e.oldValue !== e.newValue && e.newValue !== undefined) {
-                sendValue(e.key, e.newValue);
-            }
-        };
-        setDefaultSettings(defaultSettings);
+export function initialize(defaultSettings) {
+    settingsStorage.onchange = function (e) {
+        if (e.oldValue !== e.newValue && e.newValue !== undefined) {
+            sendValue(e.key, e.newValue);
+        }
     };
-    return CompanionSettings;
-}());
-export { CompanionSettings };
-export var companionSettings = new CompanionSettings();
+    setDefaultSettings(defaultSettings);
+}
 function sendValue(key, val) {
     if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
         var message = {

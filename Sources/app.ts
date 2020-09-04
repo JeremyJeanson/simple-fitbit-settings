@@ -9,18 +9,15 @@ const SETTINGS_FILE = "settings.cbor";
 let _settings: any;
 let _onsettingschange: (newSettings: any) => void;
 
-export class AppSettings {
-  public initialize<T>(settings: T, callback: (newSettings: T) => void): void {
-    // Save args
-    _settings = settings;
-    _onsettingschange = callback;
-    // load settings from file adn update values
-    loadSettings();
-    // Send the full settings for first load from settings
-    _onsettingschange(_settings);
-  };
+export function initialize<T>(settings: T, callback: (newSettings: T) => void): void {
+  // Save args
+  _settings = settings;
+  _onsettingschange = callback;
+  // load settings from file adn update values
+  loadSettings();
+  // Send the full settings for first load from settings
+  _onsettingschange(_settings);
 }
-export const appSettings = new AppSettings();
 
 // Received message containing settings data
 messaging.peerSocket.addEventListener("message", (evt) => {
