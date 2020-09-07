@@ -7,9 +7,10 @@ It could be used with typescript or JavaScript.
 # Features
 This module includes many features that will make you settings easy to use:
 - Include scripts for the companion app and the device app.
-- Include types to use with TypeScript.
+- Type definitions for TypScript or JavaScript (with comments to visualize the documentation when you are coding).
 - Manage your settings and default values from one place (it set the UI of the companion app with default states as expected).
 - Manage your own setting class (you don't have to set and update values).
+
 # How does it work?
 The cornerstone of this is your own setting class. In the common folder, you could have a class like this (each property is the key used in your settings UI):
 ```ts
@@ -31,30 +32,8 @@ You could use a any package manager to install this module. it was tested with n
 ```sh
 npm install simple-fitbit-settings --save-dev
 ```
-## 2. Include types (for Typescript projects only)
-Update the `tsconfig.json` inside the app folder.
-```json
-{
- "extends": "../tsconfig.json",
- "include": [
-  "**/*.ts",
-  "../node_modules/fitbit-sdk-types/types/device",
-  "../node_modules/simple-fitbit-settings/types"
- ]
-}
-```
-Update the `tsconfig.json` inside the companion folder.
-```json
-{
- "extends": "../tsconfig.json",
- "include": [
-    "**/*.ts",
-  "../node_modules/fitbit-sdk-types/types/companion",
-  "../node_modules/simple-fitbit-settings/types",
- ]
-}
-```
-## 3. Create your settings class
+
+## 2. Create your settings class
 Add a file to define your settings class (example `settings.ts)` inside the companion folder.
 Exemple:
 ```ts
@@ -68,12 +47,14 @@ Note:
 - Each property is the key used in your settings UI.
 - Your class should have one property (the quantity of properties is not limited).
 - Values defined here will define the default values of the applications.
-## 4. Initilize the device app
+
+## 3. Initilize the device app
 Inside the `app` folder the `index.ts` file have to :
 - Import the setting module.
 - Import the `settings.ts` file from the `common` folder.
 - Define and instantiate a `_settings` variable to know the settings state from the device app side (it could have on other name).
 - Initialize the settings module with the `_settings` variable and a callback (to react when settings changes or at the application load).
+
 Exemple:
 ```ts
 // Import the settigns module
@@ -96,17 +77,20 @@ appSettings.initialize(
   });
 ```
 Note : initialize is a generic method. It allows this module to preserve your own type for settings. It will make your work easier with Visauls Studio Code and Typescript.
-## 5. Initilize the companion app
+
+## 4. Initilize the companion app
 Inside the `companion` folder the `index.ts` file have to :
 - Import the setting module.
 - Import the `settings.ts` file from the `common` folder.
 - Initialize the setting module with an instance of your class settings (it will be used to define default values and set UI state at first load).
+
 Exemple:
 ```ts
 import * as companionSettings from "simple-fitbit-settings/companion";
 import { Settings } from "../common/settings";
 companionSettings.initialize(new Settings());
 ```
+
 # Contribute or report issues
 You can report any issue via GitHub, if you found one, please report it!
 This code was open to be shared and improved. If you have an idea, tell it or send a pull request.
@@ -114,6 +98,5 @@ Keep in mind that this module is built for small devices. It does not have the g
 # Compilation
 This module was built with TypeScript. It uses Typescript to generate JavaScript files that are imported by the Fitbit SDK.
 It includes the following npm scripts to:
-- build (generate JavaScript files and copy all requested files to the `./distribution` directory)
-- clean (remove generated files from the `./distribution` directory)
-Types are inside the `./distribution/types` directory. If you change exported methods or class, think to update those files.
+- build (generate JavaScript files, delclarations, and copy all requested files to the `./distribution` directory).
+- clean (remove generated files from the `./distribution` directory).

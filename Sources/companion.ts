@@ -2,7 +2,10 @@ import * as messaging from "messaging";
 import { settingsStorage } from "settings";
 import { MessageData } from "./common";
 
-// initialize settings tools
+/**
+ * Initialize settings tools 
+ * @param defaultSettings - Class with default settings
+ */
 export function initialize(defaultSettings: any): void {
   // Whensettings changed -> send the new value
   settingsStorage.onchange = (e) => {
@@ -15,13 +18,17 @@ export function initialize(defaultSettings: any): void {
   setDefaultSettings(defaultSettings);
 }
 
-// Send value to the device app
-function sendValue(key: string, val: string): void {
+/**
+ * Send value to the device app
+ * @param key of the settings
+ * @param value of the settings
+ */
+function sendValue(key: string, value: string): void {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     const message: MessageData = {
       type: "setting",
       key: key,
-      value: JSON.parse(val)
+      value: JSON.parse(value)
     };
     messaging.peerSocket.send(message);
   } else {
@@ -29,7 +36,10 @@ function sendValue(key: string, val: string): void {
   }
 }
 
-// Init default settings
+/**
+ * Init default settings
+ * @param defaultSettings 
+ */
 function setDefaultSettings(defaultSettings: any): void {
   // For each properties of the settings class
   for (let key in defaultSettings) {
@@ -42,14 +52,21 @@ function setDefaultSettings(defaultSettings: any): void {
   }
 }
 
-// Set defaut setting
+/**
+ * Set defaut setting
+ * @param key of setting to set 
+ * @param value of setting to set
+ */
 export function setDefaultSetting(key: string, value: any): void {
   if (getSetting(key) === null) {
     setSetting(key, value);
   }
 }
 
-// try to get current setting (return null if not defined or error)
+/**
+ * try to get current setting (return null if not defined or error)
+ * @param key 
+ */
 function getSetting(key: string): string {
   try {
     return settingsStorage.getItem(key);
@@ -58,7 +75,11 @@ function getSetting(key: string): string {
   }
 }
 
-// Set the setting
+/**
+ * Set the setting
+ * @param key 
+ * @param value 
+ */
 function setSetting(key: string, value: any): void {
   try {
     settingsStorage.setItem(key, JSON.stringify(value));

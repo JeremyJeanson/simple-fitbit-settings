@@ -9,6 +9,11 @@ const SETTINGS_FILE = "settings.cbor";
 let _settings: any;
 let _onsettingschange: (newSettings: any) => void;
 
+/**
+ * Initialize settings
+ * @param settings that will be managed by the module
+ * @param callback to receive changin settings
+ */
 export function initialize<T>(settings: T, callback: (newSettings: T) => void): void {
   // Save args
   _settings = settings;
@@ -19,7 +24,9 @@ export function initialize<T>(settings: T, callback: (newSettings: T) => void): 
   _onsettingschange(_settings);
 }
 
-// Received message containing settings data
+/**
+ * Received message containing settings data
+ */
 messaging.peerSocket.addEventListener("message", (evt) => {
   // Get data
   const data = evt.data as MessageData;
@@ -34,10 +41,14 @@ messaging.peerSocket.addEventListener("message", (evt) => {
   }
 });
 
-// Register for the unload event
+/**
+ * Register for the unload event
+ */
 me.addEventListener("unload", saveSettings);
 
-// update settings
+/**
+ * update settings
+ */
 function loadSettings() {
   const settings = getSettings();
   if (settings === undefined) return;
@@ -52,7 +63,9 @@ function loadSettings() {
   }
 }
 
-// Load settings from filesystem
+/**
+ * Load settings from filesystem
+ */
 function getSettings(): any {
   try {
     return fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
@@ -61,7 +74,9 @@ function getSettings(): any {
   }
 }
 
-// Save settings to the filesystem
+/**
+ * Save settings to the filesystem
+ */
 function saveSettings(): void {
   fs.writeFileSync(SETTINGS_FILE, _settings, SETTINGS_TYPE);
 }

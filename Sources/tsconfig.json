@@ -3,6 +3,8 @@
 	"compilerOptions": {
 		"outDir": "../distribution",
 		"sourceMap": false,
+		"declaration": true,
+		"removeComments": false
 	},
 	"include": [
 		"./node_modules/fitbit-sdk-types/types/device",
