@@ -1,7 +1,7 @@
 import { me } from "appbit";
 import * as fs from "fs";
 import * as messaging from "messaging";
-import { MessageData } from "./common";
+import { MessageData } from "../common";
 
 const SETTINGS_TYPE = "cbor";
 const SETTINGS_FILE = "settings.cbor";

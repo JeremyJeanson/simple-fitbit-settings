@@ -1,6 +1,6 @@
 import * as messaging from "messaging";
 import { settingsStorage } from "settings";
-import { MessageData } from "./common";
+import { MessageData } from "../common";
 
 /**
  * Initialize settings tools 
