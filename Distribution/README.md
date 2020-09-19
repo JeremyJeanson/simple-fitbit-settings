@@ -37,10 +37,15 @@ npm install simple-fitbit-settings --save-dev
 Add a file to define your settings class (example `settings.ts)` inside the companion folder.
 Exemple:
 ```ts
+import * as commonSettings from "simple-fitbit-settings/common";
 export class Settings {
+  // Key used with a Toggle control
   public showSomething: boolean = true;
+  // Keys used with ColorSelect controls
   public colorBackground: string = "black";
   public colorForeground: string = "white";
+  // Key used with a Select control
+  public valueFromSelectControl: commonSettings.Selection = { selected: [0], values: [ { name: "Name to show", value: "Value" } ] };
 }
 ```
 Note:

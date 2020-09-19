@@ -6,3 +6,25 @@ export interface MessageData {
   key: string; // Key of the setting to set
   value: string; // Value of the settting to set
 }
+
+/**
+ * Selection returned by Select control
+ */
+export interface Selection{
+    /**
+     * Index of the option in the full options list of the control
+     */
+    selected:number[];
+    /**
+     * Options with values selected by the user
+     */
+    values:Option[];
+}
+
+/**
+ * Option used to contain the value in Select control
+ */
+export interface Option{
+    name:string;
+    value:string;
+}
