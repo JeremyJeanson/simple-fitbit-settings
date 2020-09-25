@@ -11,6 +11,13 @@ This module includes many features that will make you settings easy to use:
 - Manage your settings and default values from one place (it set the UI of the companion app with default states as expected).
 - Manage your own setting class (you don't have to set and update values).
 
+# Versionning and Fitbit OS
+Like the Fitbit SDK, this module target tow OS. This split was made to allow users to use types définitions with the fitbit SDK 5.
+| Fitbit Os / SDK | Version to use |
+| -- | -- |
+| 4 | 2.x.x |
+| 5 | 3.x.x |
+
 # How does it work?
 The cornerstone of this is your own setting class. In the common folder, you could have a class like this (each property is the key used in your settings UI):
 ```ts

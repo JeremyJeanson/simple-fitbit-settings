@@ -1,7 +1,7 @@
 devDependencies:
-  '@fitbit/sdk': 4.2.1
-  fitbit-sdk-types: 5.0.0
-  typescript: 4.0.2
+  '@fitbit/sdk': 5.0.1
+  fitbit-sdk-types: 6.0.0
+  typescript: 4.0.3
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.10.4:
@@ -217,7 +217,7 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-y/EU1HufyydlR8kRhVH5ttb7CloGaO9inmnyebpLZGHaS9+zGL1CDAG2ua4Vgp6yjpNSjg7prwjLCIpoZ501wQ==
-  /@fitbit/sdk/4.2.1:
+  /@fitbit/sdk/5.0.1:
     dependencies:
       '@babel/core': 7.11.5
       '@babel/plugin-syntax-dynamic-import': 7.8.3_@babel+core@7.11.5
@@ -274,7 +274,7 @@ packages:
       node: '>=10.10.0'
     hasBin: true
     resolution:
-      integrity: sha512-wsMksyT2UgtgaNVMNY04EVZkcqJn04SEl0hOQ7Z6N6u1atZa6CaPcsH82cGZcosjHpL604uYVjkakA/cTOks8w==
+      integrity: sha512-VvZNBd0qQcTTQ4hK9bWD9FCdcOs/kQay0Vt/8ouMmgGWT7e3f/R800qzTyYCENHf+ubL2INGyGcOLJgpo7c5Ng==
   /@rollup/plugin-commonjs/15.0.0_rollup@2.26.11:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.26.11
@@ -867,11 +867,11 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
-  /fitbit-sdk-types/5.0.0:
+  /fitbit-sdk-types/6.0.0:
     dev: true
     hasBin: true
     resolution:
-      integrity: sha512-T6ew2l4w3KrkHCDCTM8L3Met4DeDHsbNI1gmA2WcElC0OjZ/NiVaPJGHjh03h1Rg74B9uc91cb51JzrmFd7EZw==
+      integrity: sha512-nkfweIOgspewyVkqcF5lBtg0Qx2bX1uhcn0VCbRlCI5M4mUoiXxQnuYP7T1a5Hgi2XCsd1v1LwzF8cIq0FXRQw==
   /flush-write-stream/1.1.1:
     dependencies:
       inherits: 2.0.4
@@ -2122,13 +2122,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
-  /typescript/4.0.2:
+  /typescript/4.0.3:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
+      integrity: sha512-tEu6DGxGgRJPb/mVPIZ48e69xCn2yRmCgYmDugAVwmJ6o+0u1RI18eO7E7WBTLYLaEVVOhwQmcdhQHweux/WPg==
   /unc-path-regex/0.1.2:
     dev: true
     engines:
@@ -2356,6 +2356,6 @@ packages:
     resolution:
       integrity: sha512-phENi2PLiHnHb6QBVot+dJnaAZ0xosj7p3fWl+znIjBDlnMI2PsZCJZ306BPTFOaHf5qdDEI8x5qFrSOBN5vrw==
 specifiers:
-  '@fitbit/sdk': 4.2.1
-  fitbit-sdk-types: 5.0.0
-  typescript: 4.0.2
+  '@fitbit/sdk': 5.0.1
+  fitbit-sdk-types: 6.0.0
+  typescript: 4.0.3
