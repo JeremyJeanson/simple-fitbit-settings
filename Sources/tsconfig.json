@@ -1,6 +1,7 @@
 {
 	"extends": "./node_modules/@fitbit/sdk/sdk-tsconfig.json",
 	"compilerOptions": {
+		"strict": true,
 		"noEmit": false,
 		"outDir": "../distribution",
 		"sourceMap": false,
