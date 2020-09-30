@@ -7,7 +7,7 @@ import { settingsStorage } from "settings";
 export function initialize(defaultSettings) {
     // Whensettings changed -> send the new value
     settingsStorage.onchange = function (e) {
-        if (e.oldValue !== e.newValue && e.newValue !== undefined) {
+        if (e.key !== null && e.oldValue !== e.newValue && e.newValue !== undefined) {
             sendValue(e.key, e.newValue);
         }
     };
@@ -24,7 +24,7 @@ function sendValue(key, value) {
         var message = {
             type: "setting",
             key: key,
-            value: JSON.parse(value)
+            value: value === null ? "" : JSON.parse(value)
         };
         messaging.peerSocket.send(message);
     }
