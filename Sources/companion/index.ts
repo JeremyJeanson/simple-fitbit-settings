@@ -6,7 +6,7 @@ import { MessageData } from "../common";
  * Initialize settings tools 
  * @param defaultSettings - Class with default settings
  */
-export function initialize(defaultSettings: any): void {
+export function initialize<T>(defaultSettings: T): void {
   // Whensettings changed -> send the new value
   settingsStorage.onchange = (e) => {
     if (e.key !== null && e.oldValue !== e.newValue && e.newValue !== undefined) {
@@ -40,9 +40,9 @@ function sendValue(key: string, value: string | null): void {
  * Init default settings
  * @param defaultSettings 
  */
-function setDefaultSettings(defaultSettings: any): void {
+function setDefaultSettings<T>(defaultSettings: T): void {
   // For each properties of the settings class
-  for (let key in defaultSettings) {
+  for (const key in defaultSettings) {
     // Get the value
     const value = defaultSettings[key];
     // Test if value is defined
@@ -57,7 +57,7 @@ function setDefaultSettings(defaultSettings: any): void {
  * @param key of setting to set 
  * @param value of setting to set
  */
-export function setDefaultSetting(key: string, value: any): void {
+export function setDefaultSetting(key: string, value: unknown): void {
   if (getSetting(key) === null) {
     setSetting(key, value);
   }
@@ -80,7 +80,7 @@ function getSetting(key: string): string | null {
  * @param key 
  * @param value 
  */
-function setSetting(key: string, value: any): void {
+function setSetting(key: string, value: unknown): void {
   try {
     settingsStorage.setItem(key, JSON.stringify(value));
   }

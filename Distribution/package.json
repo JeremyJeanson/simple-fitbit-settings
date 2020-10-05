@@ -21,10 +21,14 @@
   "devDependencies": {
     "@fitbit/sdk": "4.2.1",
     "fitbit-sdk-types": "5.0.0",
-    "typescript": "4.0.2"
+    "typescript": "4.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0"    
   },
   "scripts": {
     "build":"@powershell Copy-Item -Path ./package.json,../README.md -Destination ../distribution/ && tsc --build",
-    "clean": "tsc --build --clean && @powershell Remove-Item ../distribution/*.*"
+    "clean": "tsc --build --clean && @powershell Remove-Item ../distribution/*.*",
+    "lint":"eslint . --ext .js,.jsx,.ts,.tsx"
   }
 }
