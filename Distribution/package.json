@@ -1,6 +1,6 @@
 {
   "name": "simple-fitbit-settings",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Module to simplify management of settings inside Fitbit OS applications",
   "author": "Jérémy Jeanson (https://www.bugshunter.net)",
   "license": "MIT",
@@ -22,13 +22,13 @@
     "@fitbit/sdk": "5.0.1",
     "fitbit-sdk-types": "6.0.0",
     "typescript": "4.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
-    "eslint": "^7.10.0"    
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.11.0"
   },
   "scripts": {
-    "build":"@powershell Copy-Item -Path ./package.json,../README.md -Destination ../distribution/ && tsc --build",
+    "build": "@powershell Copy-Item -Path ./package.json,../README.md -Destination ../distribution/ && tsc --build",
     "clean": "tsc --build --clean && @powershell Remove-Item ../distribution/*.*",
-    "lint":"eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   }
 }

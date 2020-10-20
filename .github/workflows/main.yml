@@ -1,0 +1,62 @@
+name: CI
+
+# Triggers the workflow on push or pull request
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      # Npm install
+      - name: Npm install
+        working-directory: ./Sources
+        run: npm install
+
+      # Copy files (licences, etcs...)
+      - name: Copy files
+        if: ${{ success() }}
+        run: |
+          cp -rf ./Sources/package.json ./Distribution
+          cp -rf ./README.md ./Distribution
+          cp -rf ./LICENSE ./Distribution
+          ls ./Distribution
+
+      # Buil
+      - name: Build
+        if: ${{ success() }}
+        working-directory: ./Sources
+        run: npx tsc --build
+
+      # Pack the module
+      # - name: Pack
+      #   if: ${{ success() }}
+      #   working-directory: ./Distribution
+      #   run: npm pack
+
+      # - name: Upload artefact
+      #   if: ${{ success() }}
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: fitbit-sdk-extenson
+      #     path: ./Distribution/*.tgz
+
+      # Publish to npm js
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Publish
+        if: ${{ success() }}
+        working-directory: ./Distribution
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

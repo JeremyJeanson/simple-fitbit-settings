@@ -1,24 +1,20 @@
-﻿[![npm](https://img.shields.io/npm/dw/simple-fitbit-settings.svg?logo=npm&label=npm%20version)](https://www.npmjs.com/package/simple-fitbit-settings)
+﻿
+# Simple Fitbit Settings
 
-# Introduction
+[![npm](https://img.shields.io/npm/dw/simple-fitbit-settings.svg?logo=npm&label=npm%20version)](https://www.npmjs.com/package/simple-fitbit-settings)
+
+## Introduction
 The goal of this module is to simplify management of settings inside Fitbit OS applications. It implements communication of settings from the companion to the device application, and the initialization of the companion User Interface (UI).
 
 It could be used with typescript or JavaScript.
-# Features
+## Features
 This module includes many features that will make you settings easy to use:
 - Include scripts for the companion app and the device app.
 - Type definitions for TypScript or JavaScript (with comments to visualize the documentation when you are coding).
 - Manage your settings and default values from one place (it set the UI of the companion app with default states as expected).
 - Manage your own setting class (you don't have to set and update values).
 
-# Versionning and Fitbit OS
-Like the Fitbit SDK, this module target tow OS. This split was made to allow users to use types définitions with the fitbit SDK 5.
-| Fitbit Os / SDK | Version to use |
-| -- | -- |
-| 4 | 2.x.x |
-| 5 | 3.x.x |
-
-# How does it work?
+## How does it work?
 The cornerstone of this is your own setting class. In the common folder, you could have a class like this (each property is the key used in your settings UI):
 ```ts
 export class Settings {
@@ -60,7 +56,7 @@ Note:
 - Your class should have one property (the quantity of properties is not limited).
 - Values defined here will define the default values of the applications.
 
-## 3. Initilize the device app
+### 3. Initilize the device app
 Inside the `app` folder the `index.ts` file have to :
 - Import the setting module.
 - Import the `settings.ts` file from the `common` folder.
@@ -90,7 +86,7 @@ appSettings.initialize(
 ```
 Note : initialize is a generic method. It allows this module to preserve your own type for settings. It will make your work easier with Visauls Studio Code and Typescript.
 
-## 4. Initilize the companion app
+### 4. Initilize the companion app
 Inside the `companion` folder the `index.ts` file have to :
 - Import the setting module.
 - Import the `settings.ts` file from the `common` folder.
@@ -103,12 +99,15 @@ import { Settings } from "../common/settings";
 companionSettings.initialize(new Settings());
 ```
 
-# Contribute or report issues
+## Contribute or report issues
 You can report any issue via GitHub, if you found one, please report it!
 This code was open to be shared and improved. If you have an idea, tell it or send a pull request.
+
 Keep in mind that this module is built for small devices. It does not have the goal to be a Swiss knife with hundreds of functions. It is why it is simple as possible.
-# Compilation
+
+## Compilation
 This module was built with TypeScript. It uses Typescript to generate JavaScript files that are imported by the Fitbit SDK.
+
 It includes the following npm scripts to:
 - build (generate JavaScript files, delclarations, and copy all requested files to the `./distribution` directory).
 - clean (remove generated files from the `./distribution` directory).
