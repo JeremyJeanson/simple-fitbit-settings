@@ -7,6 +7,7 @@
 The goal of this module is to simplify management of settings inside Fitbit OS applications. It implements communication of settings from the companion to the device application, and the initialization of the companion User Interface (UI).
 
 It could be used with typescript or JavaScript.
+
 ## Features
 This module includes many features that will make you settings easy to use:
 - Include scripts for the companion app and the device app.
