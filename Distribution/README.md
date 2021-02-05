@@ -87,6 +87,8 @@ appSettings.initialize(
 ```
 Note : initialize is a generic method. It allows this module to preserve your own type for settings. It will make your work easier with Visauls Studio Code and Typescript.
 
+Node : only known settings (those defined in `Settings`) will be delivered to the device.
+
 ### 4. Initilize the companion app
 Inside the `companion` folder the `index.ts` file have to :
 - Import the setting module.

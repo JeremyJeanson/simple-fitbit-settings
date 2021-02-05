@@ -7,7 +7,8 @@ import { settingsStorage } from "settings";
 export function initialize(defaultSettings) {
     // Whensettings changed -> send the new value
     settingsStorage.onchange = function (e) {
-        if (e.key !== null && e.oldValue !== e.newValue && e.newValue !== undefined) {
+        if (e.key !== null && e.key in defaultSettings
+            && e.oldValue !== e.newValue && e.newValue !== undefined) {
             sendValue(e.key, e.newValue);
         }
     };
