@@ -9,7 +9,8 @@ import { MessageData } from "../common";
 export function initialize<T>(defaultSettings: T): void {
   // Whensettings changed -> send the new value
   settingsStorage.onchange = (e) => {
-    if (e.key !== null && e.oldValue !== e.newValue && e.newValue !== undefined) {
+    if (e.key !== null && e.key in defaultSettings
+         && e.oldValue !== e.newValue && e.newValue !== undefined) {
       sendValue(e.key, e.newValue);
     }
   };
